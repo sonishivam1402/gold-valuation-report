@@ -1,0 +1,8 @@
+{
+  "name": "Shivam Jewellers & Finance - Gold Valuation Report Generator",
+  "description": "Professional gold jewellery valuation report generator for Shivam Jewellers & Finance, Vadodara, featuring multi-item valuation, letterhead printing, and A4 PDF export.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
