@@ -309,7 +309,7 @@ export async function generateValuationPDF(
       2: { halign: 'center', cellWidth: 16 },
       3: { halign: 'right', cellWidth: 18 },
       4: { halign: 'right', cellWidth: 26 },
-      5: { halign: 'right', cellWidth: 18, fontStyle: 'bold' },
+      5: { halign: 'right', cellWidth: 18 },
       6: { halign: 'center', cellWidth: 18 },
       7: { halign: 'right', cellWidth: 17 },
       8: { halign: 'right', cellWidth: 26, fontStyle: 'bold' },
@@ -465,19 +465,14 @@ export async function generateValuationPDF(
     doc.setPage(i);
 
     if (isFullPageLetterhead) {
-      // The image already has the gold/brown metallic footer bar at Y=280-297
-      // Print crisp white/gold text directly on top of the footer bar
       doc.setFontSize(6.5);
       doc.setFont('helvetica', 'normal');
       doc.setTextColor(240, 240, 240);
-      doc.text(
-        `${settings.businessName}  |  ${settings.address}  |  Tel: ${formatMobileDisplay(settings.mobile)}`,
-        leftMargin,
-        pageHeight - 5
-      );
-      doc.text(`Page ${i} of ${totalPages}`, pageWidth - rightMargin, pageHeight - 5, {
-        align: 'right',
-      });
+      if (totalPages > 1) {
+        doc.text(`Page ${i} of ${totalPages}`, pageWidth - rightMargin, pageHeight - 5, {
+          align: 'right',
+        });
+      }
     } else {
       // Standard footer line for content-only or custom banner
       doc.setDrawColor(...borderGray);

@@ -339,7 +339,7 @@ export const Step4Preview: React.FC<Step4PreviewProps> = ({
                     <td className="py-2 px-2 text-center text-neutral-500 font-medium">
                       {item.srNo || index + 1}
                     </td>
-                    <td className="py-2 px-2 font-semibold text-neutral-900">
+                    <td className="py-2 px-2 text-neutral-900">
                       <div>{item.description}</div>
                       {item.notes && (
                         <div className="text-[10px] text-neutral-500 font-normal italic">
@@ -356,10 +356,10 @@ export const Step4Preview: React.FC<Step4PreviewProps> = ({
                     <td className="py-2 px-2 text-right tabular-nums text-neutral-600">
                       {item.impurityWeight > 0 ? formatWeight(item.impurityWeight) : '-'}
                     </td>
-                    <td className="py-2 px-2 text-right tabular-nums font-bold text-amber-950">
+                    <td className="py-2 px-2 text-right tabular-nums text-neutral-700">
                       {formatWeight(item.netWeight)}
                     </td>
-                    <td className="py-2 px-1 text-center font-semibold">
+                    <td className="py-2 px-1 text-center">
                       {item.purityCarat}K
                     </td>
                     <td className="py-2 px-2 text-right tabular-nums text-neutral-700">
@@ -376,7 +376,7 @@ export const Step4Preview: React.FC<Step4PreviewProps> = ({
                   <td colSpan={2} className="py-2.5 px-2 uppercase tracking-wider text-[10px]">
                     Total Summary
                   </td>
-                  <td className="py-2.5 px-1 text-center tabular-nums font-extrabold">
+                  <td className="py-2.5 px-1 text-center tabular-nums">
                     {report.totals.articlesCount}
                   </td>
                   <td className="py-2.5 px-2 text-right tabular-nums">
@@ -385,7 +385,7 @@ export const Step4Preview: React.FC<Step4PreviewProps> = ({
                   <td className="py-2.5 px-2 text-right tabular-nums text-neutral-700">
                     {formatWeight(report.totals.impurityWeight)}
                   </td>
-                  <td className="py-2.5 px-2 text-right tabular-nums text-amber-950 font-black">
+                  <td className="py-2.5 px-2 text-right tabular-nums text-neutral-900">
                     {formatWeight(report.totals.netWeight)}
                   </td>
                   <td className="py-2.5 px-1 text-center text-neutral-500">-</td>
@@ -432,8 +432,8 @@ export const Step4Preview: React.FC<Step4PreviewProps> = ({
           )}
 
           {/* Authorized signatory */}
-          <div className="flex justify-end pt-4 border-t border-neutral-300 print-avoid-break text-xs">
-            <div className="flex flex-col justify-between h-28 w-full max-w-xs border border-neutral-200 rounded p-3 bg-neutral-50/30">
+          <div className="flex justify-end print-avoid-break text-xs">
+            <div className="flex flex-col justify-between h-20 w-full max-w-xs border border-neutral-200 rounded p-3 bg-neutral-50/30">
               <div className="text-right">
                 <div className="font-bold text-[#2c1a0e] text-[11px]">
                   FOR {settings.businessName.toUpperCase()}
@@ -448,18 +448,6 @@ export const Step4Preview: React.FC<Step4PreviewProps> = ({
             </div>
           </div>
         </div>
-
-        {/* Footer (Full Letterhead mode) */}
-        {report.letterheadMode === 'full' && (
-          <div className="bg-[#2c1a0e] text-neutral-300 py-2 px-6 text-[10px] flex justify-between items-center border-t-2 border-amber-600">
-            <div>
-              {settings.businessName} · {settings.address}
-            </div>
-            <div>
-              Mobile: {formatMobileDisplay(settings.mobile)}
-            </div>
-          </div>
-        )}
       </div>
     </div>
   );
